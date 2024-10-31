@@ -45,7 +45,7 @@ function[x_vortex_1, y_vortex_1, z_vortex_1,x_vortex_2, y_vortex_2, z_vortex_2, 
 
     for i = 1:panel_number/2
 
-        twist(i) = deg2rad((-2 * geo_twist_angle / wing_span) * y_control(i)); % Compute Twist for Left Wing
+        twist(i) = (-2 * geo_twist_angle / wing_span) * y_control(i); % Compute Twist for Left Wing
 
     end
 
@@ -83,12 +83,12 @@ function[x_vortex_1, y_vortex_1, z_vortex_1,x_vortex_2, y_vortex_2, z_vortex_2, 
 
     % Vortex Positions at the Middle of the Wing
     x_vortex_1(panel_number/2+1) = 1/4 * root_chord; 
-    x_vortex_2(panel_number/2+1) = x_vortex_1(panel_number/2+1) + (wing_span/panel_number) * tan(deg2rad(sweep_angle));
+    x_vortex_2(panel_number/2+1) = x_vortex_1(panel_number/2+1) + (wing_span/panel_number) * tand(sweep_angle);
 
     for i = ((panel_number/2)+2):panel_number % X Vortex Positions for Right Wing
 
-        x_vortex_1(i) = x_vortex_1(i-1) + (wing_span/panel_number) * tan(deg2rad(sweep_angle));
-        x_vortex_2(i) = x_vortex_2(i-1) + (wing_span/panel_number) * tan(deg2rad(sweep_angle));
+        x_vortex_1(i) = x_vortex_1(i-1) + (wing_span/panel_number) * tand(sweep_angle);
+        x_vortex_2(i) = x_vortex_2(i-1) + (wing_span/panel_number) * tand(sweep_angle);
 
     end
 
@@ -125,11 +125,11 @@ function[x_vortex_1, y_vortex_1, z_vortex_1,x_vortex_2, y_vortex_2, z_vortex_2, 
 
         if wake_alignment == WakeAlignment.Freestream
 
-            x_control(i) = 0.5 * (x_vortex_1(i) + x_vortex_2(i)) + (chord(i)/2) * cosd(aoa - aoa_0_dist(i) - rad2deg(twist(i)));
+            x_control(i) = 0.5 * (x_vortex_1(i) + x_vortex_2(i)) + (chord(i)/2) * cosd(aoa - aoa_0_dist(i) - twist(i));
         
         else
 
-            x_control(i) = 0.5 * (x_vortex_1(i) + x_vortex_2(i)) + (chord(i)/2) * cos(-twist(i));
+            x_control(i) = 0.5 * (x_vortex_1(i) + x_vortex_2(i)) + (chord(i)/2) * cosd(-twist(i));
 
         end
 
@@ -145,17 +145,17 @@ function[x_vortex_1, y_vortex_1, z_vortex_1,x_vortex_2, y_vortex_2, z_vortex_2, 
     for i = (panel_number/2+1):panel_number 
 
         % Z Vortex Positions for Right Wing
-        z_vortex_1(i) = y_vortex_1(i) * tan(deg2rad(dihedral_angle));
-        z_vortex_2(i) = y_vortex_2(i) * tan(deg2rad(dihedral_angle));
+        z_vortex_1(i) = y_vortex_1(i) * tand(dihedral_angle);
+        z_vortex_2(i) = y_vortex_2(i) * tand(dihedral_angle);
 
         % Z Control Points for Right Wing
         if wake_alignment == WakeAlignment.Freestream
 
-            z_control(i) = y_control(i) * tan(deg2rad(dihedral_angle)) + (chord(i)/2) * sind(aoa - aoa_0_dist(i)  - rad2deg(twist(i)));
+            z_control(i) = y_control(i) * tand(dihedral_angle) + (chord(i)/2) * sind(aoa - aoa_0_dist(i)  - twist(i));
 
         else
 
-            z_control(i) = y_control(i) * tan(deg2rad(dihedral_angle)) + (chord(i)/2) * sin(-twist(i));
+            z_control(i) = y_control(i) * tand(dihedral_angle) + (chord(i)/2) * sind(-twist(i));
 
         end
 

@@ -84,7 +84,7 @@ plot3([x_trailing_edge flip(x_leading_edge) x_trailing_edge(1)], [y_trailing_edg
 xlabel('X Axis (Meters)');
 ylabel('Y Axis (Meters)');
 zlabel('Z Axis (Meters)');
-wing_plot_title = append([wing_name, ' Geometry at ', num2str(aoa_index), '° Angle of Attack']);
+wing_plot_title = append([wing_name, ' Geometry']);
 title(wing_plot_title);
 xlim([-wing_span/2 wing_span/2]);
 ylim([-wing_span/2 wing_span/2]);

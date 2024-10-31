@@ -94,7 +94,7 @@ g = figure;
 plot3([x_trailing_edge flip(x_leading_edge) x_trailing_edge(1)], [y_trailing_edge flip(y_leading_edge) y_trailing_edge(1)], [z_trailing_edge flip(z_leading_edge) z_trailing_edge(1)]); grid;
 hold on
 for i=1:panel_number
-    plot3([x_vortex_3(i) x_vortex_1(i) x_vortex_2(i) x_vortex_4(i) ], [y_vortex_3(i) y_vortex_1(i) y_vortex_2(i) y_vortex_4(i)], [z_vortex_3(i) z_vortex_1(i) z_vortex_2(i) z_vortex_4(i)],'k');
+    plot3([x_vortex_3(i) x_vortex_1(i) x_vortex_2(i) x_vortex_4(i) ], [y_vortex_3(i) y_vortex_1(i) y_vortex_2(i) y_vortex_4(i)], [z_vortex_3(i) z_vortex_1(i) z_vortex_2(i) _vortex_2(i)],'k');
 end
 
 

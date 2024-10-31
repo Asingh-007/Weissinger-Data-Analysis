@@ -23,7 +23,6 @@ function[x_vortex_1, y_vortex_1, z_vortex_1,x_vortex_2, y_vortex_2, z_vortex_2, 
             else % Right Wing
                 
                 chord(i) = ((tip_chord - root_chord) / (wing_span/2)) * y_control(i) + root_chord;
-              
              
             end
            
@@ -34,8 +33,7 @@ function[x_vortex_1, y_vortex_1, z_vortex_1,x_vortex_2, y_vortex_2, z_vortex_2, 
         for i = 1:panel_number 
 
             chord(i) = root_chord * sqrt((1 - (y_control(i) / (wing_span / 2))^2));
-           
-
+          
         end
 
     end

@@ -153,7 +153,7 @@ function[x_vortex_1, y_vortex_1, z_vortex_1,x_vortex_2, y_vortex_2, z_vortex_2, 
         % Z Control Points for Right Wing
         if wake_alignment == WakeAlignment.Freestream
 
-            z_control(i) = y_control(i) * tan(deg2rad(dihedral_angle)) + (chord(i)/2) * sind(aoa - aoa_0_dist(i) - rad2deg(twist(i)));
+            z_control(i) = y_control(i) * tan(deg2rad(dihedral_angle)) + (chord(i)/2) * sind(aoa - aoa_0_dist(i)  - rad2deg(twist(i)));
 
         else
 

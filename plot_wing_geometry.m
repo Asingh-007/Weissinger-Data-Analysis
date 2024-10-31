@@ -30,7 +30,7 @@ x_leading_edge = [(x_vortex_1(1) - (1/4)* tip_chord * cosd(twist(1)))...
                    (x_vortex_2(end) - (1/4) * tip_chord * cosd(twist(end)))];
 
 x_trailing_edge = x_leading_edge + [(tip_chord * cosd(geo_twist_angle)) (chord(1:panel_number/2).*cosd(twist(1:panel_number/2))) root_chord...
-                                    (chord((panel_number/2+1):panel_number).*cosd(twist((panel_number/2+1):panel_number))) (tip_chord * cos(geo_twist_angle))];
+                                    (chord((panel_number/2+1):panel_number).*cosd(twist((panel_number/2+1):panel_number))) (tip_chord * cosd(geo_twist_angle))];
 
 y_leading_edge = [y_vortex_1(1) y_control(1:panel_number/2) 0 y_control((panel_number/2+1):panel_number) y_vortex_2(end)];
 y_trailing_edge = y_leading_edge;

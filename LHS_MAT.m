@@ -53,7 +53,7 @@ if dihedral_twist_correction % Corrects Vortex Coefficients for Twist and Dihedr
 
             LHS_matrix(i,j) = -LHS_preliminary_matrix_x(i,j) * sind(-twist(i)) * cosd(dihedral_angle)...
                 - LHS_preliminary_matrix_y(i,j) * cosd(-twist(i)) * sind(dihedral_angle)...
-                + LHS_preliminary_matrix_z(i,j) * cos(-twist(i)) * cosd(dihedral_angle);
+                + LHS_preliminary_matrix_z(i,j) * cosd(-twist(i)) * cosd(dihedral_angle);
 
         end
 

@@ -1,4 +1,4 @@
-function[LHS_Matrix] = LHS_MAT(x_vortex_1, x_vortex_2, y_vortex_1, y_vortex_2, z_vortex_1, z_vortex_2, x_control, y_control, z_control, panel_number, aoa, aoa_0_dist, twist, dihedral_angle, dihedral_twist_correction, wake_alignment)
+function[LHS_lift_matrix] = calc_LHS_lift_matrix(x_vortex_1, x_vortex_2, y_vortex_1, y_vortex_2, z_vortex_1, z_vortex_2, x_control, y_control, z_control, panel_number, aoa, aoa_0_dist, twist, dihedral_angle, dihedral_twist_correction, wake_alignment)
 
 x_horseshoe = cell(panel_number, panel_number); % Horseshoe Vortices in the x-direction
 y_horseshoe_1 = x_horseshoe;                    % Horseshoe Vortices in the y-direction left of the control point
@@ -9,7 +9,7 @@ LHS_preliminary_matrix_x = zeros(panel_number, panel_number);
 LHS_preliminary_matrix_y = LHS_preliminary_matrix_x;
 LHS_preliminary_matrix_z = LHS_preliminary_matrix_x;
 
-LHS_Matrix = LHS_preliminary_matrix_x;
+LHS_lift_matrix = LHS_preliminary_matrix_x;
 
 
 if wake_alignment == WakeAlignment.Freestream
@@ -51,7 +51,7 @@ if dihedral_twist_correction % Corrects Vortex Coefficients for Twist and Dihedr
 
         for j = 1:panel_number/2
 
-            LHS_Matrix(i,j) = -LHS_preliminary_matrix_x(i,j) * sind(-twist(i)) * cosd(dihedral_angle)...
+            LHS_lift_matrix(i,j) = -LHS_preliminary_matrix_x(i,j) * sind(-twist(i)) * cosd(dihedral_angle)...
                 - LHS_preliminary_matrix_y(i,j) * cosd(-twist(i)) * sind(dihedral_angle)...
                 + LHS_preliminary_matrix_z(i,j) * cosd(-twist(i)) * cosd(dihedral_angle);
 
@@ -59,7 +59,7 @@ if dihedral_twist_correction % Corrects Vortex Coefficients for Twist and Dihedr
 
         for j = (panel_number/2+1):panel_number
 
-            LHS_Matrix(i,j) = -LHS_preliminary_matrix_x(i,j) * sind(twist(i)) * cosd(-dihedral_angle)...
+            LHS_lift_matrix(i,j) = -LHS_preliminary_matrix_x(i,j) * sind(twist(i)) * cosd(-dihedral_angle)...
                 - LHS_preliminary_matrix_y(i,j) * cosd(twist(i)) * sind(-dihedral_angle)...
                 + LHS_preliminary_matrix_z(i,j) * cosd(twist(i)) * cosd(-dihedral_angle);
 
@@ -69,7 +69,7 @@ if dihedral_twist_correction % Corrects Vortex Coefficients for Twist and Dihedr
 
 else
 
-    LHS_Matrix = LHS_preliminary_matrix_z(:,:);
+    LHS_lift_matrix = LHS_preliminary_matrix_z(:,:);
 
 end
 

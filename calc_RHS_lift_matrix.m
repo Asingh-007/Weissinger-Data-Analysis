@@ -1,4 +1,4 @@
-function [RHS_Matrix] = RHS_MAT(aoa, aoa_0_dist, twist, dihedral_angle, freestream_velocity, panel_number)
+function [RHS_Matrix] = calc_RHS_lift_matrix(aoa, aoa_0_dist, twist, dihedral_angle, freestream_velocity, panel_number)
 
 RHS_Matrix = zeros(1, panel_number);
 

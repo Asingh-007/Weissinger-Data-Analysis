@@ -1,4 +1,4 @@
-function [circulation, lift_distribution, cl_distribution, total_lift_distribution, total_cl_distribution] = calculate_CL(aoa_vector, LHS_Matrix, RHS_Matrix, freestream_velocity, panel_number, mach, chord, wing_reference_area, wing_span)
+function [circulation, lift_distribution, cl_distribution, total_lift_distribution, total_cl_distribution] = calc_CL(aoa_vector, LHS_lift_matrix, RHS_lift_matrix, freestream_velocity, panel_number, mach, chord, wing_reference_area, wing_span)
 
 circulation = cell(1,size(aoa_vector,2));
 lift_distribution = cell(1,size(aoa_vector,2));
@@ -8,7 +8,7 @@ total_cl_distribution = zeros(1,size(aoa_vector,2));
 
 for i = 1:size(aoa_vector,2)
 
-    circulation{i} = LHS_Matrix{i} \ RHS_Matrix{i}';
+    circulation{i} = LHS_lift_matrix{i} \ RHS_lift_matrix{i}';
 
     for j = 1:panel_number
 

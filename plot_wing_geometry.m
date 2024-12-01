@@ -80,6 +80,8 @@ z_trailing_edge((panel_number/2+3):(panel_number+2)) = flip(z_trailing_edge(2:(p
 %% Plot Wing Geometry
 
 f = figure;
+
+subplot(121);
 plot3([x_trailing_edge flip(x_leading_edge) x_trailing_edge(1)], [y_trailing_edge flip(y_leading_edge) y_trailing_edge(1)], [z_trailing_edge flip(z_leading_edge) z_trailing_edge(1)]); grid;
 xlabel('X Axis (Meters)');
 ylabel('Y Axis (Meters)');
@@ -90,14 +92,12 @@ xlim([-wing_span/2 wing_span/2]);
 ylim([-wing_span/2 wing_span/2]);
 zlim([-wing_span/2 wing_span/2]);
 
-g = figure;
+subplot(122);
 plot3([x_trailing_edge flip(x_leading_edge) x_trailing_edge(1)], [y_trailing_edge flip(y_leading_edge) y_trailing_edge(1)], [z_trailing_edge flip(z_leading_edge) z_trailing_edge(1)]); grid;
 hold on
 for i=1:panel_number
     plot3([x_vortex_3(i) x_vortex_1(i) x_vortex_2(i) x_vortex_4(i) ], [y_vortex_3(i) y_vortex_1(i) y_vortex_2(i) y_vortex_4(i)], [z_vortex_3(i) z_vortex_1(i) z_vortex_2(i) z_vortex_4(i)],'k');
 end
-
-
 
 plot3(x_control, y_control, z_control, 'r.'); 
 xlabel('X Axis (Meters)');
@@ -109,12 +109,12 @@ xlim([-wing_span wing_span]);
 ylim([-wing_span/2 wing_span/2]);
 zlim([-wing_span/2 wing_span/2]);
 
+set(f,'Position',[0 0 2000 1000]);
+set(f,'PaperSize',[2 1],'PaperPosition',[0 0 2 1]); 
 
 if export_geometry
 
-    exportgraphics(f, strcat(['Output\', wing_plot_title, '_Plot.png']));
-
-    exportgraphics(g, strcat(['Output\', wake_plot_title, '_Plot.png']));
+    exportgraphics(f, strcat(['Output\', wing_name, '_Geometry_Plot.png']));
 
 end
 

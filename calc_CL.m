@@ -13,7 +13,7 @@ for i = 1:size(aoa_vector,2)
     for j = 1:panel_number
 
         lift{i}(j) = 1.225 * freestream_velocity * circulation{i}(j) / sqrt(1-mach^2);
-        CL{i}(j) = lift{i}(j) / (0.5 * 1.225 * chord(i) * freestream_velocity^2);
+        CL{i}(j) = lift{i}(j) / (0.5 * 1.225 * chord(j) * freestream_velocity^2);
 
     end
 

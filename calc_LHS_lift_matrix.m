@@ -14,11 +14,11 @@ LHS_lift_matrix = LHS_preliminary_matrix_x;
 
 if wake_alignment == WakeAlignment.Freestream
 
-    u_inf = [cosd(aoa - aoa_0_dist(panel_number/2)); 0; sind(aoa - aoa_0_dist(panel_number/2))];
+    freestream_velocity_vector = [cosd(aoa - aoa_0_dist(panel_number/2)); 0; sind(aoa - aoa_0_dist(panel_number/2))];
 
 else
 
-    u_inf = [1; 0; 0];
+    freestream_velocity_vector = [1; 0; 0];
 
 end
 
@@ -33,8 +33,8 @@ for i = 1:panel_number
 
         x_horseshoe{i,j} = (cross(r_bound_1, r_bound_2) / norm(cross(r_bound_1, r_bound_2))^2) * ...
             (dot(rx_horseshoe, ((r_bound_1 / norm(r_bound_1)) - (r_bound_2 / norm(r_bound_2)))));
-        y_horseshoe_1{i,j} = cross(u_inf, r_bound_1) / (norm(r_bound_1) * (norm(r_bound_1) - dot(u_inf, r_bound_1)));
-        y_horseshoe_2{i,j} = cross(u_inf, r_bound_2) / (norm(r_bound_2) * (norm(r_bound_2) - dot(u_inf, r_bound_2)));
+        y_horseshoe_1{i,j} = cross(freestream_velocity_vector, r_bound_1) / (norm(r_bound_1) * (norm(r_bound_1) - dot(freestream_velocity_vector, r_bound_1)));
+        y_horseshoe_2{i,j} = cross(freestream_velocity_vector, r_bound_2) / (norm(r_bound_2) * (norm(r_bound_2) - dot(freestream_velocity_vector, r_bound_2)));
 
         LHS_prelimary_matrix{i,j} = (1/(4*pi)) * (x_horseshoe{i,j} - y_horseshoe_1{i,j} + y_horseshoe_2{i,j});
         LHS_preliminary_matrix_x(i,j) = LHS_prelimary_matrix{i,j}(1);

@@ -88,7 +88,7 @@ ylabel('Y Axis (Meters)');
 zlabel('Z Axis (Meters)');
 wing_plot_title = append([wing_name, ' Geometry']);
 title(wing_plot_title);
-xlim([-wing_span/2 wing_span/2]);
+xlim([-2* wing_span/2 2*wing_span/2]);
 ylim([-wing_span/2 wing_span/2]);
 zlim([-wing_span/2 wing_span/2]);
 

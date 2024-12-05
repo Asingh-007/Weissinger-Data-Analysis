@@ -26,8 +26,7 @@ grid;
 plot(y_control, lift{array_index}, 'k', y_control, elliptic_lift{array_index}, '--r');
 xlabel('Span (m)');
 ylabel('Lift')
-lg = legend('Lift Distribution', 'Ideal Elliptic Lift Distribution');
-lg.Location = 'south';
+legend('Lift Distribution', 'Ideal Elliptic Lift Distribution')
 lift_title =  append(['Lift and Ideal Elliptic Distribution of ', wing_name, index_name, '° Angle of Attack']);
 title(lift_title);
     
@@ -39,8 +38,8 @@ if size(aoa_vector,2) > 1
     plot(aoa_vector, total_CL);
     xlabel('Angle of Attack [°]')
     ylabel('C_L')
-    lg = legend(['Total Wing Coefficent of Lift = ', num2str(CL_aoa)]);
-    lg.Location = 'northwest';
+    legend(['Total Wing Coefficent of Lift = ', num2str(CL_aoa)]);
+    
     CL_aoa_title =  append(['Coefficent of Lift of ', wing_name, ' over Angle of Attack']);
     title(CL_aoa_title);
     

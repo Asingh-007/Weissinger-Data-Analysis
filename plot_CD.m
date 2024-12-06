@@ -71,7 +71,7 @@ if size(aoa_vector, 2) > 1
     title(drag_polar_title);
 
     txt = append(['Oswald Efficiency Factor: ' num2str(oswald_efficiency_factor)]);
-    text(total_CL(round(end/2)), total_induced_kutta_CD(round(end/2)) + 0.25 *  total_induced_kutta_CD(round(end/2)), txt);
+    text(total_CL(round(end/2) - round(end/5)), total_induced_kutta_CD(round(end/2)) + 0.25 *  total_induced_kutta_CD(round(end/2)), txt);
 
 end
 

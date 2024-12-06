@@ -1,4 +1,4 @@
-function plot_CD(f, y_control, induced_aoa, elliptic_aoa, induced_kutta_CD, total_induced_kutta_CD, total_CL, total_induced_treffz_plane_CD, wing_name, aoa_vector, index, array_index, do_aoa_labels, is_looped)
+function plot_CD(f, y_control, induced_aoa, elliptic_aoa, induced_kutta_CD, total_induced_kutta_CD, total_CL, total_induced_treffz_plane_CD, aspect_ratio, wing_name, aoa_vector, index, array_index, do_aoa_labels, is_looped)
 
 if is_looped
 
@@ -57,7 +57,8 @@ kutta_CD_title = append(['Kutta Joukowski Coefficent of Drag of ', wing_name, in
 title(kutta_CD_title);
 
 if size(aoa_vector, 2) > 1
-
+    K = (total_CL.^2)' \ total_induced_kutta_CD';
+    oswald_efficiency_factor = 1 / (pi * aspect_ratio * K);
     subplot(313);
     hold on
     grid;
@@ -68,6 +69,9 @@ if size(aoa_vector, 2) > 1
     lg.Location = 'northwest';
     drag_polar_title = append('Drag Polar of ', wing_name);
     title(drag_polar_title);
+
+    txt = append(['Oswald Efficiency Factor: ' num2str(oswald_efficiency_factor)]);
+    text(total_CL(round(end/2)), total_induced_kutta_CD(round(end/2)) + 0.25 *  total_induced_kutta_CD(round(end/2)), txt);
 
 end
 

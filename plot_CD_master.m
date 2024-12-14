@@ -24,19 +24,15 @@ if plot_aoa_all
 
     for i = 1:size(aoa_vector, 2)
 
-     plot_CD(f, y_control, induced_aoa, elliptic_aoa, induced_kutta_CD, total_induced_kutta_CD, total_CL, total_induced_treffz_plane_CD, aspect_ratio, wing_name, aoa_vector, aoa_vector(i), i, do_aoa_labels, true);
+     plot_CD(f, y_control, induced_aoa, elliptic_aoa, induced_kutta_CD, total_induced_kutta_CD, total_CL, total_induced_treffz_plane_CD, wing_name, aoa_vector, aoa_vector(i), i, do_aoa_labels, oswald_efficiency_factor,  true);
 
     end
 
 else
 
-     plot_CD(f, y_control, induced_aoa, elliptic_aoa, induced_kutta_CD, total_induced_kutta_CD, total_CL, total_induced_treffz_plane_CD, aspect_ratio, wing_name, aoa_vector, aoa_index, array_index, do_aoa_labels, false);
+     plot_CD(f, y_control, induced_aoa, elliptic_aoa, induced_kutta_CD, total_induced_kutta_CD, total_CL, total_induced_treffz_plane_CD, wing_name, aoa_vector, aoa_index, array_index, do_aoa_labels, oswald_efficiency_factor, false);
 
 end
-
-subplot(313);
-txt = append(['Oswald Efficiency Factor: ' num2str(oswald_efficiency_factor)]);
-text(total_CL(round(end/2) - round(end/5)), total_induced_kutta_CD(round(end/2)) + 0.25 *  total_induced_kutta_CD(round(end/2)), txt);
 
 if export_drag
 

@@ -67,8 +67,8 @@ if size(aoa_vector, 2) > 1
     lg.Location = 'northwest';
     drag_polar_title = append('Drag Polar of ', wing_name);
     title(drag_polar_title);
-    drag_polar_sub_title = append(' Oswald Efficiency Factor: ', num2str(oswald_efficiency_factor));
-    subtitle(drag_polar_sub_title);
+    drag_polar_sub_title = append()
+    subtitle()
 
 end
 

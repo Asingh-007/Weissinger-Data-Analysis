@@ -1,4 +1,4 @@
-function [CL_aoa] = plot_CL_master(y_control, lift, CL, total_CL, aoa_vector, freestream_velocity, wing_reference_area, wing_span, panel_number, array_index, wing_name, aoa_index, export_lift, plot_aoa_all, do_aoa_labels)
+function [CL_aoa] = plot_CL_master(y_control, lift, CL, total_CL, aoa_vector, freestream_velocity, wing_reference_area, wing_span, panel_number, array_index, wing_name, aoa_index, export_lift, plot_aoa_all, do_aoa_labels, export_name)
 
 
 % Prandt Lifting Line Theory 
@@ -41,7 +41,7 @@ end
 
 if export_lift
 
-    exportgraphics(f,  strcat(['Output\', wing_name,'_Lift_Plot.png']));
+    exportgraphics(f,  strcat(['Output\', export_name,'_Lift_Plot.png']));
 
 end
 

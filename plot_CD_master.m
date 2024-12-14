@@ -1,4 +1,4 @@
-function plot_CD_master(y_control, induced_aoa, aoa_vector, induced_kutta_CD, total_induced_kutta_CD, total_induced_treffz_plane_CD, total_CL, freestream_velocity, aspect_ratio,  wing_span, wing_reference_area, panel_number, aoa_index, array_index, plot_aoa_all, wing_name, export_drag, do_aoa_labels)
+function plot_CD_master(y_control, induced_aoa, aoa_vector, induced_kutta_CD, total_induced_kutta_CD, total_induced_treffz_plane_CD, total_CL, freestream_velocity, aspect_ratio,  wing_span, wing_reference_area, panel_number, aoa_index, array_index, plot_aoa_all, wing_name, export_drag, do_aoa_labels, export_name)
 
 
 for i = 1:size(aoa_vector,2)
@@ -33,6 +33,6 @@ end
 
 if export_drag
 
-    exportgraphics(f,  strcat(['Output\', wing_name,'_Drag_Plot.png']));
+    exportgraphics(f,  strcat(['Output\', export_name,'_Drag_Plot.png']));
 
 end

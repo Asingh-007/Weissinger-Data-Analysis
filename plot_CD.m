@@ -1,4 +1,4 @@
-function plot_CD(f, y_control, induced_aoa, elliptic_aoa, induced_kutta_CD, total_induced_kutta_CD, total_CL, total_induced_treffz_plane_CD, aspect_ratio, run_name, aoa_vector, index, array_index, do_aoa_labels, is_looped)
+function plot_CD(f, y_control, induced_aoa, elliptic_aoa, induced_kutta_CD, total_induced_kutta_CD, total_CL, total_induced_treffz_plane_CD, aspect_ratio, wing_name, aoa_vector, index, array_index, do_aoa_labels, is_looped)
 
 if is_looped
 
@@ -33,7 +33,7 @@ if is_looped && do_aoa_labels
 end
 xlabel('Span (m)');
 ylabel('Induced Angle of Attack (°)');
-induced_aoa_title = append(['Induced Angle of Attack Distribution of ', run_name, index_name, '° Angle of Attack']);
+induced_aoa_title = append(['Induced Angle of Attack Distribution of ', wing_name, index_name, '° Angle of Attack']);
 lg = legend('Induced Angle of Attack', 'Ideal Elliptic');
 lg.Location = "north";
 title(induced_aoa_title);
@@ -53,7 +53,7 @@ if is_looped && do_aoa_labels
 end
 xlabel('Span (m)');
 ylabel('C_D');
-kutta_CD_title = append(['Kutta Joukowski Coefficent of Drag of ', run_name, index_name, '° Angle of Attack']);
+kutta_CD_title = append(['Kutta Joukowski Coefficent of Drag of ', wing_name, index_name, '° Angle of Attack']);
 title(kutta_CD_title);
 
 if size(aoa_vector, 2) > 1
@@ -67,7 +67,7 @@ if size(aoa_vector, 2) > 1
     ylabel('C_D')
     lg = legend('Treffz Plane', 'Kutta Joukowski');
     lg.Location = 'northwest';
-    drag_polar_title = append('Drag Polar of ', run_name);
+    drag_polar_title = append('Drag Polar of ', wing_name);
     title(drag_polar_title);
 
     txt = append(['Oswald Efficiency Factor: ' num2str(oswald_efficiency_factor)]);

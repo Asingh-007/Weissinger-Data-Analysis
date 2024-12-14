@@ -1,4 +1,4 @@
-function plot_wing_geometry(panel_number, wing_span, root_chord, tip_chord, geo_twist_angle, twist, chord, x_vortex_1, x_vortex_2, y_vortex_1, y_vortex_2, z_vortex_1, z_vortex_2, x_control, y_control, z_control, aoa_index, aoa_0_dist, wake_alignment, wake_length, run_name, export_geometry)
+function plot_wing_geometry(panel_number, wing_span, root_chord, tip_chord, geo_twist_angle, twist, chord, x_vortex_1, x_vortex_2, y_vortex_1, y_vortex_2, z_vortex_1, z_vortex_2, x_control, y_control, z_control, aoa_index, aoa_0_dist, wake_alignment, wake_length, wing_name, export_geometry)
 
 y_vortex_3 = y_vortex_1;
 y_vortex_4 = y_vortex_2;
@@ -86,7 +86,7 @@ plot3([x_trailing_edge flip(x_leading_edge) x_trailing_edge(1)], [y_trailing_edg
 xlabel('X Axis (Meters)');
 ylabel('Y Axis (Meters)');
 zlabel('Z Axis (Meters)');
-wing_plot_title = append([run_name, ' Geometry']);
+wing_plot_title = append([wing_name, ' Geometry']);
 title(wing_plot_title);
 xlim([-2* wing_span/2 2*wing_span/2]);
 ylim([-wing_span/2 wing_span/2]);
@@ -103,7 +103,7 @@ plot3(x_control, y_control, z_control, 'r.');
 xlabel('X Axis (Meters)');
 ylabel('Y Axis (Meters)');
 zlabel('Z Axis (Meters)');
-wake_plot_title = append([run_name,' Control Points and Wake at ',  num2str(aoa_index) , '° Angle of Attack']);
+wake_plot_title = append([wing_name,' Control Points and Wake at ',  num2str(aoa_index) , '° Angle of Attack']);
 title(wake_plot_title);
 xlim([-wing_span wing_span]);
 ylim([-wing_span/2 wing_span/2]);
@@ -114,7 +114,7 @@ set(f,'PaperSize',[2 1],'PaperPosition',[0 0 2 1]);
 
 if export_geometry
 
-    exportgraphics(f, strcat(['Output\', run_name, '_Geometry_Plot.png']));
+    exportgraphics(f, strcat(['Output\', wing_name, '_Geometry_Plot.png']));
 
 end
 

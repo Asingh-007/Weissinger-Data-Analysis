@@ -1,4 +1,4 @@
-function plot_CL(f, y_control, CL, wing_name, index, lift, elliptic_lift, array_index, CL_aoa, aoa_vector, total_CL, do_aoa_labels, is_looped)
+function plot_CL(f, y_control, CL, run_name, index, lift, elliptic_lift, array_index, CL_aoa, aoa_vector, total_CL, do_aoa_labels, is_looped)
 
 if is_looped
 
@@ -27,7 +27,7 @@ if is_looped && do_aoa_labels
 end
 xlabel('Span (m)');
 ylabel('C_L');
-CL_title =  append(['C_L Distribution of ', wing_name, index_name, '° Angle of Attack']);
+CL_title =  append(['C_L Distribution of ', run_name, index_name, '° Angle of Attack']);
 title(CL_title);
     
 subplot(312);
@@ -51,7 +51,7 @@ xlabel('Span (m)');
 ylabel('Lift')
 lg = legend('Lift Distribution', 'Ideal Elliptic Lift Distribution');
 lg.Location = 'south';
-lift_title =  append(['Lift and Ideal Elliptic Distribution of ', wing_name, index_name, '° Angle of Attack']);
+lift_title =  append(['Lift and Ideal Elliptic Distribution of ', run_name, index_name, '° Angle of Attack']);
 title(lift_title);
     
 if size(aoa_vector,2) > 1
@@ -64,7 +64,7 @@ if size(aoa_vector,2) > 1
     ylabel('C_L')
     lg = legend(['Total Wing Coefficent of Lift = ', num2str(CL_aoa)]);
     lg.Location = 'northwest';
-    CL_aoa_title =  append(['Coefficent of Lift of ', wing_name, ' over Angle of Attack']);
+    CL_aoa_title =  append(['Coefficent of Lift of ', run_name, ' over Angle of Attack']);
     title(CL_aoa_title);
     
 end

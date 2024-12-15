@@ -97,7 +97,7 @@ end
 
 
 %% colormap definition
-C = colormap(ax);
+C = colormap("prism");
 ncolors = size(C, 1);
 I = sqrt(u.^2 + v.^2 + w.^2);
 

@@ -6,15 +6,7 @@ f = figure;
 
 x_wake = 10 * wing_span;
 
-if wake_alignment == WakeAlignment.Freestream
-
-    z_interval = [(-wing_span/8 + x_wake * sind(max(aoa_vector))); (wing_span/8 + x_wake * sind(max(aoa_vector)))];
-
-else
-
-    z_interval = [-wing_span/8; wing_span/8];
-
-end
+z_interval = [-wing_span/8; wing_span/8];
 
 y_interval = [(-1.2 * wing_span/2); (1.2 * wing_span/2)];
 

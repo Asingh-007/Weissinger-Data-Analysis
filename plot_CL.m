@@ -48,7 +48,7 @@ if is_looped && do_aoa_labels
     textj.Color = 'k';
 end
 xlabel('Span (m)');
-ylabel('Lift')
+ylabel('Lift');
 lg = legend('Lift Distribution', 'Ideal Elliptic Lift Distribution');
 lg.Location = 'south';
 lift_title =  append(['Lift and Ideal Elliptic Distribution of ', wing_name, index_name, '° Angle of Attack']);
@@ -60,8 +60,8 @@ if size(aoa_vector,2) > 1
     hold on
     grid;
     plot(aoa_vector, total_CL);
-    xlabel('Angle of Attack [°]')
-    ylabel('C_L')
+    xlabel('Angle of Attack [°]');
+    ylabel('C_L');
     lg = legend(['Total Wing Coefficent of Lift = ', num2str(CL_aoa)]);
     lg.Location = 'northwest';
     CL_aoa_title =  append(['Coefficent of Lift of ', wing_name, ' over Angle of Attack']);

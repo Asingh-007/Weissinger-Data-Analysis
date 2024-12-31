@@ -1,4 +1,4 @@
-function[reynolds_number, reynolds_CL_max] = calc_reynolds_max_CL(taper_ratio, root_chord, mean_chord_reynolds, chord, panel_number, airfoil_database_path, airfoil_name)
+function[reynolds_CL_max] = calc_reynolds_max_CL(taper_ratio, root_chord, mean_chord_reynolds, chord, panel_number, airfoil_database_path, airfoil_name)
 
 mean_aerodynamic_chord = (2/3) * root_chord * (1 + taper_ratio + taper_ratio^2) / (1 + taper_ratio);
 
@@ -17,3 +17,4 @@ for i = 1:panel_number
     reynolds_CL_max(i) = spline(reynolds, CL_max, reynolds_number(i));
 
 end
+

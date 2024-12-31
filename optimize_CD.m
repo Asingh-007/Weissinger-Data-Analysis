@@ -1,4 +1,4 @@
-function optimize_CD(aspect_ratio_interval,  taper_ratio_interval, geo_twist_angle_interval, sweep_angle_interval, dihedral_angle_interval, flap_percent_interval, flap_angle_interval, aoa_tip_0_interval, aoa_root_0_interval, max_iterations, aspect_ratio, taper_ratio, geo_twist_angle, sweep_angle, dihedral_angle, flap_percent, flap_angle, aoa_tip_0, aoa_root_0, export_optimization)
+function[wing_parameters] =  optimize_CD(aspect_ratio_interval,  taper_ratio_interval, geo_twist_angle_interval, sweep_angle_interval, dihedral_angle_interval, flap_percent_interval, flap_angle_interval, aoa_tip_0_interval, aoa_root_0_interval, max_iterations, aspect_ratio, taper_ratio, geo_twist_angle, sweep_angle, dihedral_angle, flap_percent, flap_angle, aoa_tip_0, aoa_root_0, export_optimization)
 
  options = optimset('Display', 'iter', 'PlotFcns', @optimplotfval, 'MaxIter', max_iterations,'TolFun', 1e-4, 'TolX', 1e-2);
 

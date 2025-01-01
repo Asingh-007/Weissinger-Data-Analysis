@@ -1,6 +1,6 @@
 
 
-function[ x_mesh, y_mesh, z_mesh] = plot_wake_master(grid_number, wing_span, wake_alignment, aoa_vector, x_vortex_1, x_vortex_2, y_vortex_1, y_vortex_2, z_vortex_1, z_vortex_2, panel_number, aoa_0_dist, circulation, freestream_velocity, aoa_index, array_index, wing_name, export_name, export_wake)
+function[ x_mesh, y_mesh, z_mesh] = plot_wake_master(grid_number, wing_span, wake_alignment, aoa_vector, x_vortex_1, x_vortex_2, y_vortex_1, y_vortex_2, z_vortex_1, z_vortex_2, panel_number, aoa_0_dist, circulation, freestream_velocity, array_index, wing_name, export_name, export_wake)
 
 f = figure;
 
@@ -32,7 +32,7 @@ x_grid = linspace(x_interval(1), x_interval(2), grid_number)';
     end
 
 hold on;
-wake_title = append('Wake Plot of ', wing_name, ' at ', num2str(aoa_index), '° Angle of Attack');
+wake_title = append('Wake Plot of ', wing_name, ' at ', num2str(aoa_vector(array_index)), '° Angle of Attack');
 title(wake_title);
 quiverC3D(x_mesh, y_mesh, z_mesh, x_velocity, y_velocity, z_velocity, 1.5);
 view(-30,30);

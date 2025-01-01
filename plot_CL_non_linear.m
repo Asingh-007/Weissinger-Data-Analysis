@@ -1,4 +1,4 @@
-function plot_CL_non_linear(f, y_control, CL, CL_non_linear, total_CL, total_CL_non_linear, aoa_vector, aoa_sectional, decambering_angle, array_index, wing_name, index, do_aoa_labels, is_looped)
+function plot_CL_non_linear(f, y_control, CL, CL_non_linear, total_CL, total_CL_non_linear, aoa_vector, aoa_sectional, decambering_angle, array_index, wing_name, do_aoa_labels, is_looped)
 
 if is_looped
 
@@ -6,11 +6,11 @@ if is_looped
 
 else
 
-    index_name = append([' at ', num2str(index)]);
+    index_name = append([' at ', num2str(aoa_vector(array_index))]);
 
 end
 
-aoa = cellstr(num2str(index));
+aoa = cellstr(num2str(aoa_vector(array_index)));
 row = dataTipTextRow('Angle of Attack', repelem(aoa,1,numel(y_control)));
 
 subplot(221);
@@ -22,7 +22,7 @@ plt2 = plot(y_control, CL_non_linear{array_index},'-b');
 plt1.DataTipTemplate.DataTipRows(end+1) = row;
 plt2.DataTipTemplate.DataTipRows(end+1) = row;
 if is_looped && do_aoa_labels
-    txt = num2str(index);
+    txt = num2str(aoa_vector(array_index));
     txt_index = randi([(numel(y_control)/2)-(numel(y_control)/10) (numel(y_control)/2)+(numel(y_control)/10)]);
     texti = text(y_control(txt_index), CL{array_index}(txt_index), txt);
     textj = text(y_control(txt_index), CL_non_linear{array_index}(txt_index), txt);
@@ -47,7 +47,7 @@ grid;
 plt = plot(y_control, rad2deg(aoa_sectional{array_index}), 'k');
 plt.DataTipTemplate.DataTipRows(end+1) = row;
 if is_looped && do_aoa_labels
-    txt = num2str(index);
+    txt = num2str(aoa_vector(array_index));
     txt_index = randi([(numel(y_control)/2)-(numel(y_control)/10) (numel(y_control)/2)+(numel(y_control)/10)]);
     texti = text(y_control(txt_index), rad2deg(aoa_sectional{array_index}(txt_index)), txt);
     texti.FontSize = 7;
@@ -67,7 +67,7 @@ grid;
 plt = plot(y_control, rad2deg(decambering_angle{array_index}));
 plt.DataTipTemplate.DataTipRows(end+1) = row;
 if is_looped && do_aoa_labels
-    txt = num2str(index);
+    txt = num2str(aoa_vector(array_index));
     txt_index = randi([(numel(y_control)/2)-(numel(y_control)/10) (numel(y_control)/2)+(numel(y_control)/10)]);
     texti = text(y_control(txt_index), rad2deg(decambering_angle{array_index}(txt_index)), txt);
     texti.FontSize = 7;

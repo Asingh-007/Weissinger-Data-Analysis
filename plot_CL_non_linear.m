@@ -35,7 +35,7 @@ end
 xlabel('Span (m)');
 ylabel('C_L');
 lg = legend('Linear C_L Distribution', 'Non-Linear C_L Distribution');
-lg.Location = 'south';
+lg.Location = 'northwest';
 
 lift_title =  append(['Linear and Non-Linear Distribution of ', wing_name, index_name, '° Angle of Attack']);
 title(lift_title);

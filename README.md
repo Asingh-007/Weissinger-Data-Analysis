@@ -6,4 +6,6 @@ Citations & References
 
   Bruno Pacheo's Applied Aerodynamics - Airfoils and Wings Course for the Optmization Algorithms and Experimental Data
 
+  John D'Errico for fminsearchbnd function
+
   

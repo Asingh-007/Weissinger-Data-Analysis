@@ -1,5 +1,3 @@
-
-
 function[ x_mesh, y_mesh, z_mesh] = plot_wake_master(grid_number, wing_span, wake_alignment, aoa_vector, x_vortex_1, x_vortex_2, y_vortex_1, y_vortex_2, z_vortex_1, z_vortex_2, panel_number, aoa_0_dist, circulation, freestream_velocity, array_index, wing_name, export_name, export_wake)
 
 f = figure;

@@ -22,8 +22,7 @@ disp(labeled_wing_parameters);
 
 if export_optimization
 
-    optimize_file_name = append(['Output\', 'Optimize_CD_Run_', num2str(randi([1000000000 9999999999],1)),'.xlsx']);
-    writematrix(wing_parameter_labels, optimize_file_name, 'Sheet', 1, 'Range','A1');
-    writematrix(wing_parameters, optimize_file_name, 'Sheet', 1, 'Range','B1');
-
+    optimize_file_name = append(['Optimize_CD_Run_', num2str(randi([1000000000 9999999999],1))]);
+    export_wing_parameters(wing_parameters, optimize_file_name);
+    
 end

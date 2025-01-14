@@ -1,6 +1,6 @@
 function goal = max_CL(var)
 
-global panel_number aoa_vector root_chord elliptical_planform wake_alignment dihedral_twist_correction non_linear_correction compressibility_correction freestream_velocity airfoil_name mean_chord_reynolds airfoil_database_path decambering_threshold max_decambering_iterations
+global panel_number aoa_vector elliptical_planform wake_alignment dihedral_twist_correction non_linear_correction compressibility_correction freestream_velocity airfoil_name mean_chord_reynolds airfoil_database_path decambering_threshold max_decambering_iterations
 
 aspect_ratio = var(1);
 taper_ratio = var(2);
@@ -11,6 +11,7 @@ flap_percent = var(6);
 flap_angle = var(7);
 aoa_tip_0 = var(8);
 aoa_root_0 = var(9);
+root_chord = var(10);
 
 mach = 0.8;
 

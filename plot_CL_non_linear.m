@@ -18,7 +18,7 @@ hold on;
 grid;
 
 plt1 = plot(y_control, CL{array_index}, 'k');
-plt2 = plot(y_control, CL_non_linear{array_index},'-b');
+plt2 = plot(y_control, CL_non_linear{array_index},'-r');
 plt1.DataTipTemplate.DataTipRows(end+1) = row;
 plt2.DataTipTemplate.DataTipRows(end+1) = row;
 if is_looped && do_aoa_labels
@@ -97,6 +97,6 @@ if size(aoa_vector,2) > 1 && size(nonzeros(total_CL_non_linear),1) > 1
 
 end
 
-set(f,'Position',[0 0 2000 2000]);
+set(f,'Position',[0 0 1200 1200]);
 set(f,'PaperSize',[2 2],'PaperPosition',[0 0 2 2]); 
 

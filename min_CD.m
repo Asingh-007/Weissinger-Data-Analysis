@@ -1,6 +1,6 @@
 function area_curve = min_CD(var)
 
-global panel_number aoa_vector root_chord elliptical_planform wake_alignment dihedral_twist_correction freestream_velocity
+global panel_number aoa_vector elliptical_planform wake_alignment dihedral_twist_correction freestream_velocity
 
 aspect_ratio = var(1);
 taper_ratio = var(2);
@@ -11,6 +11,7 @@ flap_percent = var(6);
 flap_angle = var(7);
 aoa_tip_0 = var(8);
 aoa_root_0 = var(9);
+root_chord = var(10);
 
 mach = 0;
 

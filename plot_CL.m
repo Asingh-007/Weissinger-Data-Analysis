@@ -62,7 +62,7 @@ if size(aoa_vector,2) > 1
     plot(aoa_vector, total_CL);
     xlabel('Angle of Attack [°]');
     ylabel('C_L');
-    lg = legend(['Total Wing Coefficent of Lift = ', num2str(CL_aoa)]);
+    lg = legend(['Slope = ', num2str(CL_aoa)]);
     lg.Location = 'northwest';
     CL_aoa_title =  append(['Coefficent of Lift of ', wing_name, ' over Angle of Attack']);
     title(CL_aoa_title);

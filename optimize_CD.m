@@ -6,7 +6,7 @@ function[wing_parameters] =  optimize_CD(aspect_ratio_interval,  taper_ratio_int
         [aspect_ratio_interval(1); taper_ratio_interval(1); geo_twist_angle_interval(1); sweep_angle_interval(1); dihedral_angle_interval(1); flap_percent_interval(1); flap_angle_interval(1); aoa_tip_0_interval(1); aoa_root_0_interval(1); root_chord_interval(1)],...
         [aspect_ratio_interval(2); taper_ratio_interval(2); geo_twist_angle_interval(2); sweep_angle_interval(2); dihedral_angle_interval(2); flap_percent_interval(2); flap_angle_interval(2); aoa_tip_0_interval(2); aoa_root_0_interval(2); root_chord_interval(2)], options);
 
-wing_parameter_labels = {'Aspect Ratio: ', 'Taper Ratio: ', 'Geometric Twist Angle [°]: ', 'Sweep Angle [°]: ', 'Dihedral Angle [°]: ', 'Flap Percent: ', 'Flap Angle: ', 'Tip Angle of Attack [°] for Zero Lift: ', 'Root Angle of Attack [°] for Zero Lift: ', 'Root Chord [m]: '};
+wing_parameter_labels = {'Aspect Ratio: ', 'Taper Ratio: ', 'Geometric Twist Angle [°]: ', 'Sweep Angle [°]: ', 'Dihedral Angle [°]: ', 'Flap Percent: ', 'Flap Angle [°]: ', 'Tip Angle of Attack [°] for Zero Lift: ', 'Root Angle of Attack [°] for Zero Lift: ', 'Root Chord [m]: '};
 wing_parameter_labels = string(wing_parameter_labels);
 wing_parameter_labels = transpose(wing_parameter_labels);
 

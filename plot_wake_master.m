@@ -1,14 +1,6 @@
-function[ x_mesh, y_mesh, z_mesh] = plot_wake_master(grid_number, wing_span, wake_alignment, aoa_vector, x_vortex_1, x_vortex_2, y_vortex_1, y_vortex_2, z_vortex_1, z_vortex_2, panel_number, aoa_0_dist, circulation, freestream_velocity, array_index, wing_name, export_name, export_wake)
+function[ x_mesh, y_mesh, z_mesh] = plot_wake_master(x_interval, y_interval, z_interval, grid_number, wake_alignment, aoa_vector, x_vortex_1, x_vortex_2, y_vortex_1, y_vortex_2, z_vortex_1, z_vortex_2, panel_number, aoa_0_dist, circulation, freestream_velocity, array_index, wing_name, export_name, export_wake)
 
 f = figure;
-
-x_wake = 10 * wing_span;
-
-z_interval = [-wing_span/8; wing_span/8];
-
-y_interval = [(-1.2 * wing_span/2); (1.2 * wing_span/2)];
-
-x_interval = [-x_wake/64 ; x_wake/8];
 
 y_grid = linspace(y_interval(1), y_interval(2), grid_number)';
 z_grid = linspace(z_interval(1), z_interval(2), grid_number)';

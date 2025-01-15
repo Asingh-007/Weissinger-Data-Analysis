@@ -88,7 +88,7 @@ ylabel('Y Axis (Meters)');
 zlabel('Z Axis (Meters)');
 wing_plot_title = append([wing_name, ' Geometry']);
 title(wing_plot_title);
-xlim([-2* wing_span/2 2*wing_span/2]);
+xlim([-wing_span 2*wing_span]);
 ylim([-wing_span/2 wing_span/2]);
 zlim([-wing_span/2 wing_span/2]);
 
@@ -105,7 +105,7 @@ ylabel('Y Axis (Meters)');
 zlabel('Z Axis (Meters)');
 wake_plot_title = append([wing_name,' Control Points and Wake at ',  num2str(aoa_index) , '° Angle of Attack']);
 title(wake_plot_title);
-xlim([-wing_span wing_span]);
+xlim([-wing_span 2*wing_span]);
 ylim([-wing_span/2 wing_span/2]);
 zlim([-wing_span/2 wing_span/2]);
 
